@@ -1,0 +1,9 @@
+mat-sidenav-container{
+  margin:15px;
+}
+
+mat-sidenav-content
+{
+  font-size: 13pt;
+  margin: 16px;
+}

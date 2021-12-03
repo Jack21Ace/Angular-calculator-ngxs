@@ -1,0 +1,10 @@
+mat-label>span,button{
+  font-size: 15pt;
+  margin: 5px;
+}
+
+.proccess{
+  position: relative;
+  text-align: center;
+  margin-top: 33px;
+}

@@ -1,0 +1,11 @@
+<mat-sidenav-container>
+  <mat-selection-list #operator [multiple]="false" (onChange)="selected($event)">
+    <mat-list-option *ngFor="let operator of typesOfOperators" [value]="operator">
+      {{operator}}
+    </mat-list-option>
+  </mat-selection-list>
+
+  <p (onChange)="selected($event)">
+    Operación a realizar: {{operator.selectedOptions.selected[0]?.value}}
+  </p>
+</mat-sidenav-container>
