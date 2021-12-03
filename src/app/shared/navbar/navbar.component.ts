@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { OptionService } from 'src/app/option.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -7,14 +9,20 @@ import { Component, Input } from '@angular/core';
 })
 export class NavbarComponent{
 
+  optSelected:any;
+
   typesOfOperators = ['Sumar', 'Restar', 'Multiplicar', 'Potencia'];
 
-
-  constructor(){}
-
-  selected(value: any){
-    let result = value.toString();
-    console.log("Holi" + result);
+  selected(event:any) {
+    let value = event.option.value;
+    this.optSelected = value;
+    this.optionService.opt.emit({
+      data:this.optSelected
+    })
+    console.log("Value: " + this.optSelected);
+    return this.optSelected;
   }
+
+  constructor(private optionService:OptionService){}
 
 }
