@@ -7,24 +7,30 @@
       <div class="row">
         <div class="col-12">
           <p>
-            <mat-toolbar style="margin: 15px;">
+            <mat-toolbar style="margin: 15px">
               <span>Calculadora</span>
-              <button mat-stroked-button color="warn" style="float: left; left:75%"><span>Borrar</span></button>
+                <button mat-stroked-button color="warn" class="borrar" (click)="limpiar()"><span>Borrar</span></button>
             </mat-toolbar>
           </p>
         </div>
         <div class="proccess col-12">
           <mat-form-field appearance="fill">
             <mat-label>Número 1</mat-label>
-            <input matInput [(ngModel)]="num1" type="number" maxlength="5">
+            <input matInput [(ngModel)]="num1" type="number" maxlength="5" />
           </mat-form-field>
           <mat-label><span id="opt">+</span></mat-label>
           <mat-form-field appearance="fill">
             <mat-label>Número 2</mat-label>
-            <input matInput [(ngModel)]="num2" type="number" maxlength="5">
+            <input matInput [(ngModel)]="num2" type="number" maxlength="5" />
           </mat-form-field>
-          <button mat-stroked-button color="primary" (click)="operar()">Procesar</button>
-
+          <button mat-stroked-button color="primary" (click)="operar()">
+            Procesar
+          </button>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>El resultado es:</mat-label>
+            <input matInput [(ngModel)]="resultado" disabled type="number" maxlength="5" />
+          </mat-form-field>
         </div>
       </div>
     </div>

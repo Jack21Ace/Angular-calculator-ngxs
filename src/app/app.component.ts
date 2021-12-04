@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { Component, OnInit, Inject } from '@angular/core';
 import { OptionService } from './option.service';
-
 
 @Component({
   selector: 'app-root',
@@ -10,36 +10,28 @@ import { OptionService } from './option.service';
 export class AppComponent implements OnInit {
 
   public opts: Array<any> = [];
-  num1 = 0;
-  num2 = 0;
-  resultado = 0
+  num1: number = 0;
+  num2: number = 0;
+  resultado: number = 0
 
   constructor(private optionService: OptionService) { }
 
-  operaciones = [
-    { valor: 'Sumar', muestraValor: 'Sumar' },
-    { valor: 'Restar', muestraValor: 'Restar' },
-    { valor: 'Multiplicar', muestraValor: 'Multiplicar' },
-    { valor: 'Potencia', muestraValor: 'Potencia' }
-  ];
-
-  seleccionada: string = this.operaciones[0].valor;
 
   ngOnInit(): void {
-    this.optionService.opt.subscribe(data => {this.opts.push(data);})
+    this.optionService.opt.subscribe(data => {
+      this.opts.push(data);
+      console.log(this.opts);
+    })
   }
 
-  operar() {
-    switch (this.seleccionada) {
-      case 'Sumar': this.resultado = this.num1 + this.num2;
-        break;
-      case 'Restar': this.resultado = this.num1 - this.num2;
-        break;
-      case 'Multiplicar': this.resultado = this.num1 * this.num2;
-        break;
-      case 'Potencia': this.resultado = this.num1 ** this.num2;
-        break;
-    }
+  limpiar(){
+    this.num1 = 0;
+    this.num2 = 0;
+    this.resultado = 0;
+  }
+
+  operar(): void {
+    this.resultado = this.num1 + this.num2;
   }
 
 }
